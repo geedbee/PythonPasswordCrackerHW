@@ -3,8 +3,6 @@ import hashlib
 import itertools
 import time
 
-#Test commit
-
 #Function to generate an md5 hash
 #Input: a string that contains the plaintext to hash
 #Returns: a string of the md5 hash
@@ -28,7 +26,7 @@ def print_results(results):
 #Main
 if __name__ == '__main__':
     #Create a character list of all possible chars
-    all_characters_str = 'abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ0123456789 !"#$%&\'()*+,-./:;<=>?@[\]^_`{|}~'
+    all_characters_str = 'abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ0123456789@'
     all_characters = list(all_characters_str)
 
     #Open "hashes.txt" and read in hashes into list "hashes"
@@ -47,8 +45,8 @@ if __name__ == '__main__':
     #Brute-force attack
     for x in range(9):
         #Uses itertools to create all possible permutations with repetition
-        combinations = list(itertools.product(all_characters, repeat=x))
-        for c in combinations:
+        permutation_iterator = itertools.product(all_characters, repeat=x)
+        for c in permutation_iterator:
             #Converts result into a plaintext word
             c_list = list(c)
             plaintext = "".join(c_list)
