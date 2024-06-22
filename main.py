@@ -3,6 +3,8 @@ import hashlib
 import itertools
 import time
 
+#Test commit
+
 #Function to generate an md5 hash
 #Input: a string that contains the plaintext to hash
 #Returns: a string of the md5 hash
