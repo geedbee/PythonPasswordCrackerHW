@@ -56,11 +56,10 @@ if __name__ == '__main__':
             #If there is a match, print out and append data to cracked_hashes
             for h in hashes:
                 if hash == h:
-                    print("CRACKED HASH: " + plaintext + " = " + hash)
                     #calculate time passed
                     end = time.perf_counter()
                     s = (end-startTime)
-                    print(s)
+                    print("CRACKED HASH: " + plaintext + " = " + hash + "\t" + str(s))
                     #save data to cracked_hashes
                     data = [{"hash": hash, "plaintext": plaintext, "time": s}]
                     cracked_hashes.append(data)

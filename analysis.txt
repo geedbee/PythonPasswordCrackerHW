@@ -1,3 +1,15 @@
-https://www.geeksforgeeks.org/running-python-script-on-gpu/
+Cracked passwords:
+Z, .000199s
+AD, .005518s
+God, .455149s
+1234, 45.051852s
+AbCdE, 1389.102043s
 
-As of now, can get up to password AbCdE
+
+Analysis:
+On the Length of Passwords
+The brute force password cracker takes a list of characters that could be used for passwords and creates hashes for all possible permutations with repetition. The formula for the number of permutations with repetition is n^r, with n being the length of the set of possible characters and r being the length of the password. Thus, a one length addition to the password (r+1) is equivalent to multiplying the previous amount of permutations by the amount of possible characters-- an exponential function. In my case, the set of possible characters for passwords is 63 characters long, and the amount of permutations I have to go through can be modeled by P(r) = 63^r, where r is the length of the password I want to crack.
+
+
+On How to Make it Faster
+The brute force password cracker tries all possible permutations of the set of characters, while in many cases people are bad at making passwords. Thus, it is more likely for a password to be something like "apple" than "xpejg", even though they both are the same length. For our password cracker, we can add the option of comparing from a wordlist. In a list of common passwords, "God", "1234", "AbCdE", and "P@ssword" are likely to be on them. If we know we are targeting SC students, "Trojan" and "F1ght0n" could be added to the wordlist. Only when the wordlist fails could we resort to brute force combinations, but hashing a list of common passwords and comparing those hashes to “hashes.txt” will speed up the process.
